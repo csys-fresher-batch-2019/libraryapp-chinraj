@@ -3,6 +3,18 @@ package com.chainsys.LDM.LogIn;
 public class AdminLogin {
 
 	
-public String emailId;
-public String Password;
+private String emailId;
+private String Password;
+public String getEmailId() {
+	return emailId;
+}
+public void setEmailId(String emailId) {
+	this.emailId = emailId;
+}
+public String getPassword() {
+	return Password;
+}
+public void setPassword(String password) {
+	Password = password;
+}
 }

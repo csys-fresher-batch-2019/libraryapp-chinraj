@@ -13,24 +13,29 @@ import Logger.Logger;
 
 public class LogIn implements LoginDAO{	
 
-	Logger logger = Logger.getInstance();
+	
+	public static void main(String[] args) throws Exception {
 
-	static Scanner sc=new Scanner(System.in);
-public static void main(String[] args) throws Exception {
-	System.out.println("Enter emailid:");
+	Logger logger = Logger.getInstance();
+	 Scanner sc=new Scanner(System.in);
+
+		
+	
+	logger.info("Enter emailid:");
 	String emailid=sc.next();
-	System.out.println("Enter Password:");
+	logger.info("Enter Password:");
 	String password=sc.next();
    LoginDAO com=new LogIn();
 	if(com.adminlogin(emailid,password)) {
-	System.out.println(">>>>LOGIN SUCESSFULL<<<<");
+		logger.info(">>>>LOGIN SUCESSFULL<<<<");
 	}
 	else
 	{
-	System.out.println(">>>>LOGIN FAILED<<<<");
-	}
+	logger.info(">>>>LOGIN FAILED<<<<");
+	}sc.close();
 	}
 		public boolean adminlogin(String emailid,String password) throws Exception {
+			Logger logger = Logger.getInstance();
 			try(Connection con = TestConnection.getConnection();){
 			try(Statement stmt = con.createStatement();){
 		if (stmt.executeUpdate("select email from admin_login where email='"  + emailid + "'") != 0)
@@ -44,6 +49,7 @@ public static void main(String[] args) throws Exception {
 		}
 		return false;
 		}
+		
 		}}
 			catch (Exception e) {
 			logger.error(e);	

@@ -16,9 +16,9 @@ public class FineInfoImpl implements FineInfoDAO {
 		logger.info(sqlinsert);
 		try (Connection con = TestConnection.getConnection();) {
 			try (PreparedStatement stmt = con.prepareStatement(sqlinsert);) {
-				stmt.setInt(1, FI.studentId);
-				stmt.setLong(2, FI.ISBN);
-				stmt.setInt(3, FI.finePerDay);
+				stmt.setInt(1, FI.getStudentId());
+				stmt.setLong(2, FI.getISBN());
+				stmt.setInt(3, FI.getFinePerDay());
 				int rows = stmt.executeUpdate();
 				logger.info("" + rows);
 			}
@@ -31,7 +31,7 @@ public class FineInfoImpl implements FineInfoDAO {
 		try (Connection con = TestConnection.getConnection();) {
 			String sql1 = " update fine_amount set no_of_extra_days = trunc(sysdate - (select due_date from book_summary where ISBN=? ))";
 			try (PreparedStatement stmt4 = con.prepareStatement(sql1);) {
-				stmt4.setLong(1, FO.ISBN);
+				stmt4.setLong(1, FO.getISBN());
 				int row1 = stmt4.executeUpdate();
 				logger.info(row1);
 				logger.info(sql1);
@@ -45,15 +45,15 @@ public class FineInfoImpl implements FineInfoDAO {
 		try (Connection con = TestConnection.getConnection();) {
 			String sql0 = "update fine_amount set fines=0, no_of_extra_days=0 where trunc(( sysdate-(select due_date from book_summary where ISBN=?)))<=0 ";
 			try (PreparedStatement stm = con.prepareStatement(sql0);) {
-				stm.setLong(1, FT.ISBN);
+				stm.setLong(1, FT.getISBN());
 				int row = stm.executeUpdate();
 				logger.info(row);
 				logger.info(sql0);
 
 				String sql5 = "  update fine_amount set fines= no_of_extra_days * fines_per_day where student_id= ? and ISBN=?";
 				try (PreparedStatement s = con.prepareStatement(sql5);) {
-					s.setInt(1, FT.studentId);
-					s.setLong(2, FT.ISBN);
+					s.setInt(1, FT.getStudentId());
+					s.setLong(2, FT.getISBN());
 					int rowq = s.executeUpdate();
 					logger.info(rowq);
 					logger.info(sql5);
@@ -75,17 +75,17 @@ public class FineInfoImpl implements FineInfoDAO {
 				logger.info(sql6);
 				try (ResultSet rs = pst.executeQuery();) {
 					if (rs.next()) {
-						b.fines = rs.getInt(1);
-						if (b.fines == 0) {
+						b.setFines(rs.getInt(1));
+						if (b.getFines() == 0) {
 						}
 					}
-					logger.info(b.fines);
+					logger.info(b.getFines());
 				}
 			}
 		} catch (Exception e) {
 			logger.error(e);
 		}
-		return b.fines;
+		return b.getFines();
 	}
 
 	public int bookreturned(int studentId, long iSBN) throws Exception {

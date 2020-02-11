@@ -6,7 +6,7 @@ public class TestLogin {
 		AdminLogin AL =new AdminLogin();
 		LogIn LI = new LogIn();
 		
-		LI.adminlogin(AL.emailId, AL.Password);
+		LI.adminlogin(AL.getEmailId(), AL.getPassword());
 	}
 
 }

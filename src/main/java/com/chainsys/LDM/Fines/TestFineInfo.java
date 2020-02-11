@@ -2,8 +2,6 @@ package com.chainsys.LDM.Fines;
 
 import java.util.Scanner;
 
-import Logger.Logger;
-
 public class TestFineInfo {
 	
 
