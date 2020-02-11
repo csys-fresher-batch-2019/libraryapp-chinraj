@@ -29,7 +29,7 @@ public class BookListImpl implements BookListDAO {
 				stmt.setString(8, books.getBookStatus());
 				stmt.setInt(9, books.getRackNo());
 				int rows = stmt.executeUpdate();
-				System.out.println(rows);
+				logger.info(rows);
 			}
 		} catch (Exception e) {
 			logger.error(e);
@@ -66,10 +66,10 @@ public class BookListImpl implements BookListDAO {
 		try(PreparedStatement stmt = con.prepareStatement(sqlinsert);){
 		stmt.setLong(1, book3.getISBN());
 		int row =stmt.executeUpdate();
-		System.out.println(sqlinsert);
-		System.out.println(row);
+		logger.info(sqlinsert);
+		logger.info(row);
 		if(row!=1) {
-			System.out.println("\nNo book is available on"+ book3.getISBN());
+			logger.info("\nNo book is available on"+ book3.getISBN());
 		}
 		
 	}}
@@ -87,7 +87,7 @@ public class BookListImpl implements BookListDAO {
 		try(Statement stmt = con.createStatement();){
 		try(ResultSet rs = stmt.executeQuery(sqlinsert);){
 
-		System.out.println(sqlinsert);
+			logger.info(sqlinsert);
 
 		BookList bb = new BookList();
 		
