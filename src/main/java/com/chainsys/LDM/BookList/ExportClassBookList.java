@@ -15,6 +15,7 @@ public class ExportClassBookList {
 			String Line = aa.getAuthorName() + "," + aa.getISBN() + "," + aa.getBookName() + "," + aa.getPages() + "," + aa.getPrice() + ","
 					+ aa.getBookStatus() + "," + aa.getRackNo() + "," + aa.getPublication() + "," + aa.getReleasedDate();
 			Filess = Filess + Line + "\n";
+		
 		}
 
 		Path path = Paths.get("D:\\Vignesh.txt");
