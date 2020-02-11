@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class TestBooListAddBooks {
 
 	public static void main(String[] args) throws Exception {
-		@SuppressWarnings("resource")
+		
 		Scanner s = new Scanner(System.in);
 		BookList List1 = new BookList();
 		BookListImpl Book1 = new BookListImpl();
@@ -31,6 +31,7 @@ public class TestBooListAddBooks {
 		List1.setRackNo(s.nextInt());
 
 		Book1.addBooks(List1);
+		s.close();
 
 	}
 

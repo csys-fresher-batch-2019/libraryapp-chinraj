@@ -3,9 +3,9 @@ package com.chainsys.LDM.Fines;
 import java.util.Scanner;
 
 public class TestFineInfo {
-	 static Scanner s = new Scanner(System.in);
-	public static void main(String[] args) throws Exception {
 	
+	public static void main(String[] args) throws Exception {
+		 Scanner s = new Scanner(System.in);
 		System.out.println("\n 1.AddFineInf\n 2.booksReturned\n 3.Fine per Student\n 4.LostPenality\n 5.Book Renewal");
 	
 		FineInfoImpl d = new FineInfoImpl();
@@ -59,5 +59,5 @@ public class TestFineInfo {
 			f.ISBN = s.nextLong();
 			d.renewal(f.studentId, f.ISBN);
 		}
-		}
+		}s.close();
 	}}

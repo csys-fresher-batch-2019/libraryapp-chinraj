@@ -13,13 +13,13 @@ public class TestStudentInfo {
 		StudentInfo SI = new StudentInfo();
 		
 		 logger.info("Enter studentId :");
-		SI.studentId = s.nextInt();
+		SI.setStudentId(s.nextInt());
 		 logger.info("Enter studentName :");
-		SI.studentName = s.next();
+		SI.setStudentName(s.next());
 		 logger.info("Enter deptName :");
-		SI.deptName = s.next();
+		SI.setDeptName(s.next());
 		logger.info("Enter mail :");
-		SI.mailId=s.next();
+		SI.setMailId(s.next());
 		d.addStudents(SI);
 		s.close();
 	} 

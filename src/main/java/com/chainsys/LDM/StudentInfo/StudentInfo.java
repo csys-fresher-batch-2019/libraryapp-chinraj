@@ -1,11 +1,33 @@
 package com.chainsys.LDM.StudentInfo;
 
-import lombok.Data;
-@Data
 public class StudentInfo {
 
-	  public  int studentId;
-	  public String studentName;
-	  public String deptName;
-	 public String mailId;
+	  private  int studentId;
+	  public int getStudentId() {
+		return studentId;
+	}
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
+	}
+	public String getStudentName() {
+		return studentName;
+	}
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+	public String getDeptName() {
+		return deptName;
+	}
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
+	public String getMailId() {
+		return mailId;
+	}
+	public void setMailId(String mailId) {
+		this.mailId = mailId;
+	}
+	private String studentName;
+	 private String deptName;
+	 private String mailId;
 }

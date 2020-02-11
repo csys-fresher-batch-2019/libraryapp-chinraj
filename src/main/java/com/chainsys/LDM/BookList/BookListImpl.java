@@ -37,11 +37,11 @@ public class BookListImpl implements BookListDAO {
 	}
 
 	public java.util.List<BookList> viewBooks() throws Exception {
-
-		String sqlinsert = "Select * from Booklist ";
-		Connection con = TestConnection.getConnection();
-		PreparedStatement stmt = con.prepareStatement(sqlinsert);
 		List<BookList> list = new ArrayList<BookList>();
+		String sqlinsert = "Select * from Booklist ";
+		try(Connection con = TestConnection.getConnection();){
+		try(PreparedStatement stmt = con.prepareStatement(sqlinsert);){
+		
 		try(ResultSet rs = stmt.executeQuery();){
 		while (rs.next()) {
 			System.out.println(list);
@@ -52,28 +52,45 @@ public class BookListImpl implements BookListDAO {
 			b.setPublication(rs.getString("publication"));
 			list.add(b);
 	
-		}	return list;
+		}	
+		}}}
+		catch(Exception e)
+		{	
+			logger.error(e);
 		}
+		return list;
 		}
 	public void removeBooks(BookList book3) throws Exception {
 		String sqlinsert = "delete booklist where ISBN=?";
-		Connection con = TestConnection.getConnection();
-		PreparedStatement stmt = con.prepareStatement(sqlinsert);
+		try(Connection con = TestConnection.getConnection();){
+		try(PreparedStatement stmt = con.prepareStatement(sqlinsert);){
 		stmt.setLong(1, book3.getISBN());
-		stmt.executeUpdate();
+		int row =stmt.executeUpdate();
 		System.out.println(sqlinsert);
+		System.out.println(row);
+		if(row!=1) {
+			System.out.println("\nNo book is available on"+ book3.getISBN());
+		}
+		
+	}}
+	catch(Exception e)
+	{
+		
+		logger.error(e);
 	}
-
+		}
 	public ArrayList<BookList> List() throws Exception {
+
+		ArrayList<BookList> obj1 = new ArrayList<BookList>();
 		String sqlinsert = "Select * from booklist";
-		Connection con = TestConnection.getConnection();
-		Statement stmt = con.createStatement();
-		ResultSet rs = stmt.executeQuery(sqlinsert);
+		try(Connection con = TestConnection.getConnection();){
+		try(Statement stmt = con.createStatement();){
+		try(ResultSet rs = stmt.executeQuery(sqlinsert);){
 
 		System.out.println(sqlinsert);
 
 		BookList bb = new BookList();
-		ArrayList<BookList> obj1 = new ArrayList<BookList>();
+		
 
 		while (rs.next()) {
 			long a = rs.getLong("ISBN");
@@ -83,13 +100,12 @@ public class BookListImpl implements BookListDAO {
 			String e = rs.getString("author_name");
 			String f = rs.getString("publication");
 			Date g = rs.getDate("released_date");
-			// LocalDate date = g.toLocalDate();
 			int h = rs.getInt("price");
 			String i = rs.getString("book_status");
 			int j = rs.getInt("rack_no");
 
 			bb.setISBN(a);
-						bb.setBookName(c);
+		    bb.setBookName(c);
 			bb.setPages(d);
 			bb.setAuthorName(e);
 			bb.setPublication(f);
@@ -99,11 +115,15 @@ public class BookListImpl implements BookListDAO {
 			bb.setRackNo(j);
 			obj1.add(bb);
 		}
+	
+		}}}
+		catch(Exception e)
+		{		
+		logger.error(e);
+		
+	}
 		return obj1;
-
-	}
-
-	public void SortBy() throws Exception {
-
-	}
+}
+	
+	
 }
