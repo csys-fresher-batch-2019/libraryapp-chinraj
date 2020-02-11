@@ -4,39 +4,44 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class TestBookSummary {
+	 static Scanner n = new Scanner(System.in);
 	public static void main(String[] args) throws Exception {
-		// System.out.println("hello");
+		
 
-		System.out.println("\n 1.BookInfo\n 2.ParticularDAte\n 3.Renewal");
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
+		System.out.println("\n 1.BookInfo\n 2.ParticularDAte");
+		
+			
 		BookSummaryImpl BK = new BookSummaryImpl();
 		BookSummary obj = new BookSummary();
-		switch (n) {
+	
+
+		int n1 = n.nextInt();
+		switch (n1) {
+
 		case 1: {
 			System.out.println("Enter ISBN:");
-			long fg = sc.nextLong();
-			obj.ISBN = fg;
+			long fg = n.nextLong();
+			obj.setISBN(fg);
 			if(BK.checkBookStatus(fg)) {
 			System.out.println("Enter Student Id:");
-			obj.setstudentId(sc.nextInt());
+			obj.setstudentId(n.nextInt());
 		
 			System.out.println("Enter borrowedDate:");
-			String date = sc.next();
-			// SimpleDateFormat sd = new SimpleLocalDateFormat("dd-MM-yyyy");
-			obj.borrowedDate = LocalDate.parse(date);
+			String date = n.next();
+			obj.setBorrowedDate(LocalDate.parse(date));
 			System.out.println("Enter dueDate:");
-			String date1 = sc.next();
+			String date1 = n.next();
 
-			obj.dueDate = LocalDate.parse(date1);
+			obj.setDueDate(LocalDate.parse(date1));
 			System.out.println("Enter ReturnDate:");
-			obj.returnDate = LocalDate.now();
+			obj.setReturnDate(LocalDate.now());
 			System.out.println("Enter Catogory:");
-			obj.category = sc.next();
-			System.out.println("Enter booksTaken:");
-			obj.booksTaken = sc.nextInt();
+			obj.setCategory(n.next());
+			
 			System.out.println("Enter status:");
-			obj.status = sc.next();
+			
+			obj.setStatus(n.next());
+	
 			BK.addBookInfo(obj);
 			}
 			else
@@ -47,26 +52,16 @@ public class TestBookSummary {
 			break;
 		case 2: {
 			System.out.println("Enter borrowedDate");
-			String date = sc.next();
+			String date = n.next();
 			LocalDate d = LocalDate.parse(date);
 			BK.onParticularDate(d);
-
 		}
-
+		
 		break;
 		
-		case 3 : {
-			System.out.println("Enter renewalDate:");
-			String date1 = sc.next();
-			System.out.println("Enter dueDate:");
-			String date2 = sc.next();
-            System.out.println("Enter ISBN");
-            obj.ISBN = sc.nextLong();
-			obj.renewalDate = LocalDate.parse(date1);
-			obj.dueDate = LocalDate.parse(date2);
+	
+		}
 			
-			
-			BK.renewal(obj);
 		}
 	
-}}}
+}

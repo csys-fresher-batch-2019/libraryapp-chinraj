@@ -11,26 +11,24 @@ public class TestBooListAddBooks {
 		BookList List1 = new BookList();
 		BookListImpl Book1 = new BookListImpl();
 		System.out.println("Enter ISBN :");
-		List1.ISBN =s.nextLong();
-		System.out.println("Enter bookId :");
-		List1.bookId = s.nextInt();
+		List1.setISBN(s.nextLong());
 		System.out.println("Enter BookName :");
-		List1.bookName = s.next();
+		List1.setBookName(s.next());
 		System.out.println("Enter No of pages :");
-		List1.pages = s.nextInt();
+		List1.setPages(s.nextInt());
 		System.out.println("Enter Authorname :");
-		List1.authorName = s.next();
+		List1.setAuthorName(s.next());
 		System.out.println("Enter Publications :");
-		List1.publication = s.next();
+		List1.setPublication(s.next());
 		System.out.println("Enter releasedDate:");
 		String date1 = s.next();
-		List1.releasedDate = LocalDate.parse(date1);
+		List1.setReleasedDate(LocalDate.parse(date1));
 		System.out.println("Enter price :");
-		List1.price = s.nextInt();
+		List1.setPrice(s.nextInt());
 		System.out.println("Enter book Status as Available OR Notavailable:");
-		List1.bookStatus= s.next();
+		List1.setBookStatus(s.next());
 		System.out.println("Enter rackNo :");
-		List1.rackNo= s.nextInt();
+		List1.setRackNo(s.nextInt());
 
 		Book1.addBooks(List1);
 

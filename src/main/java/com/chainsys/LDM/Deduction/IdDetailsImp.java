@@ -3,8 +3,6 @@ package com.chainsys.LDM.Deduction;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Types;
 
 import com.chainsys.LDM.BookSummary.TestConnection;
@@ -48,7 +46,6 @@ public class IdDetailsImp implements IdDetailsDAO {
 		Connection con = TestConnection.getConnection();
 		
 		String sql7 ="update amount set library_wallet = library_wallet + (select fines from fine_amount where student_id=? and ISBN=?) where student_id=?";
-		String sql8= " update fine_amount set fine_status= 'paid' where student_id= ? and ISBN =?";
 		
 		PreparedStatement s = con.prepareStatement(sql7);
 		s.setInt(1, studentId);
@@ -56,11 +53,16 @@ public class IdDetailsImp implements IdDetailsDAO {
 		s.setInt(3, studentId);
 		 int rowq = s.executeUpdate();
 		 System.out.println(rowq);
+		
+		
+		String sql8= " update fine_amount set fine_status= 'paid' where student_id= ? and ISBN =?";
+		
+		
 		PreparedStatement t = con.prepareStatement(sql8);
 		s.setInt(1, studentId);
 		s.setLong(2, ISBN);
 		
-		 int row1 = s.executeUpdate();
+		 int row1 = t.executeUpdate();
 		 System.out.println(row1);
 		 System.out.println(sql7);
 		

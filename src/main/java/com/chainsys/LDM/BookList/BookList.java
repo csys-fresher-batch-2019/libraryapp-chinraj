@@ -4,34 +4,30 @@ import java.time.LocalDate;
 
 public class BookList {
 
-			public long ISBN;
-			public int bookId;
-			public int stock;
-			public int pages;
-			public int price;
-			public int rackNo;
-			public  String bookStatus;
-			public String authorName;
-		    public String publication;
-		    public String bookName;
-		    public LocalDate releasedDate;
-		    public long getISBN() {
+			@Override
+	public String toString() {
+		return "BookList [ISBN=" + ISBN +", pages=" + pages + ", price="
+				+ price + ", rackNo=" + rackNo + ", bookStatus=" + bookStatus + ", authorName=" + authorName
+				+ ", publication=" + publication + ", bookName=" + bookName + ", releasedDate=" + releasedDate + "]";
+	}
+			private long ISBN;
+		
+		
+		private int pages;
+			private int price;
+			private int rackNo;
+			private  String bookStatus;
+			private String authorName;
+		   private String publication;
+		   private String bookName;
+		    private LocalDate releasedDate;
+		 
+			
+			public long getISBN() {
 				return ISBN;
 			}
 			public void setISBN(long iSBN) {
 				ISBN = iSBN;
-			}
-			public int getBookId() {
-				return bookId;
-			}
-			public void setBookId(int bookId) {
-				this.bookId = bookId;
-			}
-			public int getStock() {
-				return stock;
-			}
-			public void setStock(int stock) {
-				this.stock = stock;
 			}
 			public int getPages() {
 				return pages;

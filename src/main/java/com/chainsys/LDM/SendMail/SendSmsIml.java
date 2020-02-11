@@ -1,14 +1,9 @@
 package com.chainsys.LDM.SendMail;
 
-import java.io.IOException;
 import java.util.Properties;
 
-import javax.activation.DataHandler;
-import javax.activation.FileDataSource;
 import javax.mail.*;    
-import javax.mail.internet.*; 
-
-import com.sendgrid.helpers.mail.objects.Email;
+import javax.mail.internet.*;
 public class SendSmsIml {
 
 	
@@ -34,23 +29,23 @@ public class SendSmsIml {
 					message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));    
 					message.setSubject(sub);    
 					BodyPart messageBodyPart1 = new MimeBodyPart();  
-					messageBodyPart1.setText("Greetings, From Payroll Department");  
+					messageBodyPart1.setText("Greetings, From ChinLib");  
 					 
 					BodyPart messageBodyPart2 = new MimeBodyPart(); 
-					messageBodyPart2.setText("\nDear, \n \t\t ");
+					messageBodyPart2.setText("\nDear,hii \n \t\t ");
 					BodyPart messageBodyPart3 = new MimeBodyPart(); 
-					messageBodyPart3.setText("\n\t\tYour Leave application was ");
+					messageBodyPart3.setText(a);
 					BodyPart messageBodyPart4 = new MimeBodyPart(); 
 					messageBodyPart4.setText("\n\t\tThank you");
 					BodyPart messageBodyPart5 = new MimeBodyPart(); 
-					messageBodyPart5.setText("\n\t Team Payroll...");
+					messageBodyPart5.setText("\n\t Team ChinLib...");
 	
 					//String filename = "SendAttachment.java";  
 					//FileDataSource source = new FileDataSource("./src/test/java/com/chainsys/PayrollApp/SendMailSSL.java");  
 					//messageBodyPart2.setDataHandler(new DataHandler(source));  
 					//messageBodyPart2.setFileName(filename);  
 					
-					Multipart multipart = new MimeMultipart();  
+					Multipart multipart = new MimeMultipart();
 					multipart.addBodyPart(messageBodyPart1);  
 					multipart.addBodyPart(messageBodyPart2);
 					multipart.addBodyPart(messageBodyPart3);

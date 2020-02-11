@@ -12,8 +12,8 @@ public class ExportClassBookList {
 		ArrayList<BookList> e = imp.List();
 		String Filess = "";
 		for (BookList aa : e) {
-			String Line = aa.authorName + "," + aa.ISBN + "," + aa.bookName + "," + aa.pages + "," + aa.price + ","
-					+ aa.bookStatus + "," + aa.rackNo + "," + aa.bookId + "," + aa.publication + "," + aa.releasedDate;
+			String Line = aa.getAuthorName() + "," + aa.getISBN() + "," + aa.getBookName() + "," + aa.getPages() + "," + aa.getPrice() + ","
+					+ aa.getBookStatus() + "," + aa.getRackNo() + "," + aa.getPublication() + "," + aa.getReleasedDate();
 
 			Filess = Filess + Line + "\n";
 		}

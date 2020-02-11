@@ -13,35 +13,33 @@ public class classImport {
 			for(String line : l1) {
 				String[] row = line.split(",");
 				long ISBN = Long.parseLong(row[0]);
-				int bookId = Integer.parseInt(row[1]);
 				
-				String bookName = row[2];
-				int pages = Integer.parseInt(row[3]);
-				String authorName = row[4];
-				String publication = row[5];
+				
+				String bookName = row[1];
+				int pages = Integer.parseInt(row[2]);
+				String authorName = row[3];
+				String publication = row[4];
 			
-				LocalDate releasedDate = LocalDate.parse(row[6]); 
+				LocalDate releasedDate = LocalDate.parse(row[5]); 
 				
-				int price = Integer.parseInt(row[7]);
-				String bookStatus= row[8];
-				int rackNo =Integer.parseInt(row[9]);
-			    int stock = Integer.parseInt(row[10]);
+				int price = Integer.parseInt(row[6]);
+				String bookStatus= row[7];
+				int rackNo =Integer.parseInt(row[8]);
+			  
 			
 				
 			
 				BookList books = new BookList();
-				books.ISBN = ISBN;
-				books.bookId = bookId;
-				books.bookName = bookName;
-				books.pages = pages;
-				books.authorName= authorName;
-				books.publication= publication;
-				books.releasedDate=releasedDate;
-				books.price = price;
-			    books.bookStatus=bookStatus;
-			    books.rackNo = rackNo;	
-			    books.stock=stock;
-				BookListImpl method = new BookListImpl();
+				books.setISBN(ISBN);
+				books.setBookName(bookName);
+				books.setPages(pages);
+				books.setAuthorName(authorName);
+				books.setPublication(publication);
+				books.setReleasedDate(releasedDate);
+				books.setPrice(price);
+			    books.setBookStatus(bookStatus);
+			    books.setRackNo(rackNo);	
+			    BookListImpl method = new BookListImpl();
 				method.addBooks(books);
 				
 			}

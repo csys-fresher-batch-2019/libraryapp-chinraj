@@ -3,11 +3,11 @@ package com.chainsys.LDM.Deduction;
 import java.util.Scanner;
 
 public class TestIdDetails {
+	 static Scanner s = new Scanner(System.in);
 	public static void main(String[] args) throws Exception {
 		IdDetailsImp ii = new IdDetailsImp();
-		// IdDetails dd= new IdDetails();
 		System.out.println("\n 1.AddAmount\n 2.UpadateAmountInIdAfterFine\n 3.UpdateLibWalet \n4.Library Wallet");
-		Scanner s = new Scanner(System.in);
+		
 		int n = s.nextInt();
 		switch (n) {
 		case 1: {

@@ -2,20 +2,25 @@ package com.chainsys.LDM.StudentInfo;
 
 import java.util.Scanner;
 
+import Logger.Logger;
+
 public class TestStudentInfo {
 
 	public static void main (String [] args) throws Exception{
-		
+		Scanner s= new Scanner(System.in);
+		Logger logger = Logger.getInstance();
 		StudentInfoImpl d = new StudentInfoImpl();
 		StudentInfo SI = new StudentInfo();
-		Scanner s= new Scanner(System.in);
-		System.out.println("Enter studentId :");
+		
+		 logger.info("Enter studentId :");
 		SI.studentId = s.nextInt();
-		System.out.println("Enter studentName :");
+		 logger.info("Enter studentName :");
 		SI.studentName = s.next();
-		System.out.println("Enter deptName :");
+		 logger.info("Enter deptName :");
 		SI.deptName = s.next();
+		logger.info("Enter mail :");
+		SI.mailId=s.next();
 		d.addStudents(SI);
-
+		s.close();
 	} 
 }

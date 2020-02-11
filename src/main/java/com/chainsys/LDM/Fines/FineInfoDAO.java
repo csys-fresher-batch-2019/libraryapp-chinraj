@@ -8,6 +8,6 @@ public interface FineInfoDAO {
 	public int TotalFinesAmt(FinesInfo f) throws Exception ;
 	public int FinePerStudent(int studentId, long ISBN) throws Exception;
 	public int bookreturned(int studentId,long ISBN) throws Exception;
-
+	public void renewal(int studentId, Long isbn) throws Exception;
 public int PenalityForBookLost(int studentId, long ISBN) throws Exception;
 }
