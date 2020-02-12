@@ -6,17 +6,6 @@ public class BookSummary {
 			 public int getStudentId() {
 		return studentId;
 	}
-
-
-
-
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
-	}
-
-
-
-
 	public long getISBN() {
 		return ISBN;
 	}
@@ -29,14 +18,9 @@ public class BookSummary {
 	}
 
 
-
-
 	public LocalDate getBorrowedDate() {
 		return borrowedDate;
 	}
-
-
-
 
 	public void setBorrowedDate(LocalDate borrowedDate) {
 		this.borrowedDate = borrowedDate;

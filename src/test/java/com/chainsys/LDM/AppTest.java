@@ -1,4 +1,4 @@
-package com.chainsys.LDM;
+package com.chainsys.ldm;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
