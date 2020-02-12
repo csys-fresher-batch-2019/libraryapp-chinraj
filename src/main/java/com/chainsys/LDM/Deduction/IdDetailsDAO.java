@@ -1,8 +1,8 @@
 package com.chainsys.ldm.deduction;
 
 public interface IdDetailsDAO {
-	public void addMoneyInId(int a,int b) throws Exception ;
-	public int updateAmtInId (int studentId, long ISBN) throws Exception; 
-	public int updateAmtInWallet (int studentId, long ISBN) throws Exception; 
-	public void libraryWallet() throws Exception ;
+	public void addMoneyInId(int a,int b);
+	public int updateAmtInId (int studentId, long ISBN); 
+	public int updateAmtInWallet (int studentId, long ISBN); 
+	public void libraryWallet();
 }

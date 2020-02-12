@@ -34,7 +34,7 @@ public class LogIn implements LoginDAO{
 	logger.info(">>>>LOGIN FAILED<<<<");
 	}sc.close();
 	}
-		public boolean adminlogin(String emailid,String password) throws Exception {
+		public boolean adminlogin(String emailid,String password) {
 			Logger logger = Logger.getInstance();
 			try(Connection con = TestConnection.getConnection();){
 			try(Statement stmt = con.createStatement();){

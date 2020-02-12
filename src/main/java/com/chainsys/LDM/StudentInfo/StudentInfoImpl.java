@@ -9,7 +9,7 @@ import logger.Logger;
 
 public class StudentInfoImpl implements StudentInfoDAO {
 
-	public void addStudents(StudentInfo SS) throws Exception {
+	public void addStudents(StudentInfo SS) {
 		Logger logger = Logger.getInstance();
 			String sqlinsert ="insert into student(student_id,student_name,dept_name,mail_id) values(?,?,?,?)";
 		   logger.info(sqlinsert);

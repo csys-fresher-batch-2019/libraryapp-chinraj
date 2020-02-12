@@ -15,7 +15,7 @@ import logger.Logger;
 public class BookSummaryImpl implements BookSummaryDAO {
 	Logger logger = Logger.getInstance();
 
-	public boolean checkBookStatus(long fg) throws Exception {
+	public boolean checkBookStatus(long fg) {
 		String sql1 = "select book_name from booklist where ISBN = ? and book_status = 'Available'";
 		try (Connection con = TestConnection.getConnection();) {
 			try (PreparedStatement stmt = con.prepareStatement(sql1);) {
@@ -34,10 +34,9 @@ public class BookSummaryImpl implements BookSummaryDAO {
 		}
 		return false;
 		
-	
 	}
 
-	public void addBookInfo(BookSummary BS) throws Exception {
+	public void addBookInfo(BookSummary BS) {
 		try (Connection con = TestConnection.getConnection();) {
 			String sql = "insert into book_summary(student_id,ISBN,borrowed_date,due_date,catagory)"
 					+ " values(?,?,?,?,?)";
@@ -83,7 +82,7 @@ public class BookSummaryImpl implements BookSummaryDAO {
 
 	}
 
-	public List<BookSummary> onParticularDate(LocalDate borrowedDate) throws Exception {
+	public List<BookSummary> onParticularDate(LocalDate borrowedDate) {
 		List<BookSummary> li = new ArrayList<BookSummary>();
 
 		String sql6 = "select student_id,ISBN from book_summary where borrowed_date = ?";

@@ -2,11 +2,15 @@ package com.chainsys.ldm.logIn;
 
 public class TestLogin {
 
-	public TestLogin() throws Exception {
+	public TestLogin(){
 		AdminLogin AL =new AdminLogin();
 		LogIn LI = new LogIn();
 		
-		LI.adminlogin(AL.getEmailId(), AL.getPassword());
+		try {
+			LI.adminlogin(AL.getEmailId(), AL.getPassword());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

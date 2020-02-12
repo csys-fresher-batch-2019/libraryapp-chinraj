@@ -7,14 +7,11 @@ public class BookSummary {
 		return studentId;
 	}
 	public long getISBN() {
-		return ISBN;
+		return iSBN;
 	}
 
-
-
-
 	public void setISBN(long iSBN) {
-		ISBN = iSBN;
+		this.iSBN = iSBN;
 	}
 
 
@@ -100,7 +97,7 @@ public class BookSummary {
 
 
 			private int  studentId;
-			  private long ISBN;
+			  private long iSBN;
 			  private LocalDate borrowedDate;
 			  private LocalDate dueDate;
 			  private LocalDate returnDate;
@@ -119,7 +116,7 @@ public class BookSummary {
 		
 		@Override
 		public String toString() {
-			return "BookSummary [studentId=" + studentId + ", ISBN=" + ISBN + "]";
+			return "BookSummary [studentId=" + studentId + ", ISBN=" + iSBN + "]";
 		}
 
 

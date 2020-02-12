@@ -5,6 +5,7 @@ public class AdminLogin {
 	
 private String emailId;
 private String Password;
+private String mailId;
 public String getEmailId() {
 	return emailId;
 }
@@ -17,4 +18,11 @@ public String getPassword() {
 public void setPassword(String password) {
 	Password = password;
 }
+public String getMailId() {
+	return mailId;
+}
+public void setMailId(String mailId) {
+	this.mailId = mailId;
+}
+
 }

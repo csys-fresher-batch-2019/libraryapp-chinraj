@@ -36,7 +36,7 @@ public class BookListImpl implements BookListDAO {
 		}
 	}
 
-	public java.util.List<BookList> viewBooks() throws Exception {
+	public java.util.List<BookList> viewBooks()  {
 		List<BookList> list=null;
 		
 		String sqlinsert = "Select * from Booklist ";
@@ -68,7 +68,7 @@ public class BookListImpl implements BookListDAO {
 		return list;
 	}
 
-	public void removeBooks(BookList book3) throws Exception {
+	public void removeBooks(BookList book3) {
 		String sqlinsert = "delete booklist where ISBN=?";
 		try (Connection con = TestConnection.getConnection();) {
 			try (PreparedStatement stmt = con.prepareStatement(sqlinsert);) {
@@ -87,7 +87,7 @@ public class BookListImpl implements BookListDAO {
 		}
 	}
 
-	public ArrayList<BookList> List() throws Exception {
+	public ArrayList<BookList> List() {
 
 		ArrayList<BookList> obj1 = new ArrayList<BookList>();
 		String sqlinsert = "Select * from booklist";

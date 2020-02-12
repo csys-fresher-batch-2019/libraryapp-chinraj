@@ -14,7 +14,7 @@ public class IdDetailsImp implements IdDetailsDAO {
 	Logger logger = Logger.getInstance();
 	IdDetails bb = new IdDetails();
 
-	public void addMoneyInId(int a, int b) throws Exception {
+	public void addMoneyInId(int a, int b) {
 		String sqlinsert = "insert into amount(student_id,amount_in_id) values(?,?)";
 		logger.info(sqlinsert);
 		try (Connection con = TestConnection.getConnection();) {
@@ -30,7 +30,7 @@ public class IdDetailsImp implements IdDetailsDAO {
 		}
 	}
 
-	public int updateAmtInId(int studentId, long iSBN) throws Exception {
+	public int updateAmtInId(int studentId, long iSBN) {
 		try (Connection con = TestConnection.getConnection();) {
 			String sql5 = "update amount set amount_in_id = amount_in_id-(select fines from fine_amount where student_id=? and ISBN=?)where student_id=?";
 			try (PreparedStatement s = con.prepareStatement(sql5);) {
@@ -48,7 +48,7 @@ public class IdDetailsImp implements IdDetailsDAO {
 		return 0;
 	}
 
-	public int updateAmtInWallet(int studentId, long ISBN) throws Exception {
+	public int updateAmtInWallet(int studentId, long ISBN) {
 		try (Connection con = TestConnection.getConnection();) {
 			String sql7 = "update amount set library_wallet = library_wallet + (select fines from fine_amount where student_id=? and ISBN=?) where student_id=?";
 			try (PreparedStatement s = con.prepareStatement(sql7);) {
@@ -77,7 +77,7 @@ public class IdDetailsImp implements IdDetailsDAO {
 		return 0;
 	}
 
-	public void libraryWallet() throws Exception {
+	public void libraryWallet() {
 		try (Connection con = TestConnection.getConnection();) {
 			try (CallableStatement Stmt = con.prepareCall("{call LIB_WALLET_PROC(?)}");) {
 				Stmt.registerOutParameter(1, Types.INTEGER);

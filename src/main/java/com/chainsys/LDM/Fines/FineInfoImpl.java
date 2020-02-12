@@ -11,7 +11,7 @@ import logger.Logger;
 public class FineInfoImpl implements FineInfoDAO {
 	Logger logger = Logger.getInstance();
 
-	public void AddFineInfo(FinesInfo FI) throws Exception {
+	public void AddFineInfo(FinesInfo FI) {
 
 		String sqlinsert = "insert into fine_amount(student_id,ISBN,fines_per_day) values(?,?,?)";
 		logger.info(sqlinsert);
@@ -28,7 +28,7 @@ public class FineInfoImpl implements FineInfoDAO {
 		}
 	}
 
-	public void AddFineInfo1(FinesInfo FO) throws Exception {
+	public void AddFineInfo1(FinesInfo FO) {
 		try (Connection con = TestConnection.getConnection();) {
 			String sql1 = " update fine_amount set no_of_extra_days = trunc(sysdate - (select due_date from book_summary where ISBN=? ))";
 			try (PreparedStatement stmt4 = con.prepareStatement(sql1);) {
@@ -42,7 +42,7 @@ public class FineInfoImpl implements FineInfoDAO {
 		}
 	}
 
-	public int TotalFinesAmt(FinesInfo FT) throws Exception {
+	public int TotalFinesAmt(FinesInfo FT) {
 		try (Connection con = TestConnection.getConnection();) {
 			String sql0 = "update fine_amount set fines=0, no_of_extra_days=0 where trunc(( sysdate-(select due_date from book_summary where ISBN=?)))<=0 ";
 			try (PreparedStatement stm = con.prepareStatement(sql0);) {
@@ -66,7 +66,7 @@ public class FineInfoImpl implements FineInfoDAO {
 		return 0;
 	}
 
-	public int FinePerStudent(int studentId, long ISBN) throws Exception {
+	public int FinePerStudent(int studentId, long ISBN) {
 		FinesInfo b = new FinesInfo();
 		String sql6 = "select fines from fine_amount where student_id = ? and ISBN = ?";
 		try (Connection con = TestConnection.getConnection();) {
@@ -101,7 +101,7 @@ public class FineInfoImpl implements FineInfoDAO {
 		return b.getFines();
 	}
 		
-	public int bookreturned(int studentId, long iSBN) throws Exception {
+	public int bookreturned(int studentId, long iSBN) {
 		try (Connection con = TestConnection.getConnection();) {
 			String sql3 = "update book_summary set status ='Returned',return_date=sysdate where student_id =? and ISBN = ?";
 			try (PreparedStatement stmt = con.prepareStatement(sql3);) {
@@ -124,7 +124,7 @@ public class FineInfoImpl implements FineInfoDAO {
 		return 0;
 	}
 
-	public int PenalityForBookLost(int studentId, long ISBN) throws Exception {
+	public int PenalityForBookLost(int studentId, long ISBN) {
 		try (Connection con = TestConnection.getConnection();) {
 			String sql3 = "update fine_amount set lost_penality = (select price from booklist where ISBN =?) where ISBN =?";
 			try (PreparedStatement stmt = con.prepareStatement(sql3);) {
@@ -153,7 +153,7 @@ public class FineInfoImpl implements FineInfoDAO {
 		return 0;
 	}
 
-	public int renewal(int studentId, Long isbn) throws Exception {
+	public int renewal(int studentId, Long isbn) {
 		int row = 0;
 		try (Connection con = TestConnection.getConnection();) {
 			String sqll = "select fine_status from fine_amount where student_id=? and ISBN =?";

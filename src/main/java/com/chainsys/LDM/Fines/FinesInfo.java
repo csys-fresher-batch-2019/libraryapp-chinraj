@@ -3,7 +3,7 @@ package com.chainsys.ldm.fines;
 public class FinesInfo {
 
 	private int studentId;
-	private long ISBN;
+	private long iSBN;
 	private int finePerDay;
 	private int noOfExtraDays;
 	private int fines;
@@ -17,11 +17,11 @@ public class FinesInfo {
 	}
 
 	public long getISBN() {
-		return ISBN;
+		return iSBN;
 	}
 
 	public void setISBN(long iSBN) {
-		ISBN = iSBN;
+		this.iSBN = iSBN;
 	}
 
 	public int getFinePerDay() {
