@@ -1,7 +1,10 @@
-package com.chainsys.LDM.BookList;
+package com.chainsys.ldm.bookList;
 
 import java.time.LocalDate;
 import java.util.Scanner;
+
+import com.chainsys.ldm.bookList.BookList;
+import com.chainsys.ldm.bookList.BookListImpl;
 
 public class TestBooListAddBooks {
 
@@ -25,8 +28,7 @@ public class TestBooListAddBooks {
 		List1.setReleasedDate(LocalDate.parse(date1));
 		System.out.println("Enter price :");
 		List1.setPrice(s.nextInt());
-		System.out.println("Enter book Status as Available OR Notavailable:");
-		List1.setBookStatus(s.next());
+	
 		System.out.println("Enter rackNo :");
 		List1.setRackNo(s.nextInt());
 

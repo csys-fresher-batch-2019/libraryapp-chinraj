@@ -1,4 +1,4 @@
-package Logger;
+package logger;
 public class Logger {
 public static Logger getInstance()
 {
@@ -18,5 +18,3 @@ public void error(Object message)
 System.err.println(message);	
 }
 }
-
-

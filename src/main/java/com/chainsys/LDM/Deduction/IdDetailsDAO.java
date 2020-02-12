@@ -1,4 +1,4 @@
-package com.chainsys.LDM.Deduction;
+package com.chainsys.ldm.deduction;
 
 public interface IdDetailsDAO {
 	public void addMoneyInId(int a,int b) throws Exception ;

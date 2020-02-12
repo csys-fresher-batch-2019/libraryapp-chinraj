@@ -1,11 +1,11 @@
-package com.chainsys.LDM.StudentInfo;
+package com.chainsys.ldm.studentInfo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import com.chainsys.LDM.BookSummary.TestConnection;
+import com.chainsys.ldm.bookSummary.TestConnection;
 
-import Logger.Logger;
+import logger.Logger;
 
 public class StudentInfoImpl implements StudentInfoDAO {
 

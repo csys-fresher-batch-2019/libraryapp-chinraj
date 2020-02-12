@@ -1,4 +1,4 @@
-package com.chainsys.LDM.Fines;
+package com.chainsys.ldm.fines;
 
 public class FinesInfo {
 

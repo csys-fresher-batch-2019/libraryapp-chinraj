@@ -1,8 +1,8 @@
-package com.chainsys.LDM.StudentInfo;
+package com.chainsys.ldm.studentInfo;
 
 import java.util.Scanner;
 
-import Logger.Logger;
+import logger.Logger;
 
 public class TestStudentInfo {
 

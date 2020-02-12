@@ -1,4 +1,4 @@
-package com.chainsys.LDM.StudentInfo;
+package com.chainsys.ldm.studentInfo;
 import java.sql.DriverManager;
 import java.sql.Connection;
 

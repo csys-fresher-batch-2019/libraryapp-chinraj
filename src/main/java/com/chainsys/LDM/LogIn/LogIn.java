@@ -1,13 +1,13 @@
-package com.chainsys.LDM.LogIn;
+package com.chainsys.ldm.logIn;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
 
-import com.chainsys.LDM.BookSummary.TestConnection;
+import com.chainsys.ldm.bookSummary.TestConnection;
 
-import Logger.Logger;
+import logger.Logger;
 
 
 

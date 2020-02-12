@@ -1,4 +1,4 @@
-package com.chainsys.LDM.BookSummary;
+package com.chainsys.ldm.bookSummary;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -8,8 +8,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import Logger.Logger;
-import com.chainsys.LDM.SendMail.SendMail;
+import com.chainsys.ldm.sendMail.SendMail;
+
+import logger.Logger;
 
 public class BookSummaryImpl implements BookSummaryDAO {
 	Logger logger = Logger.getInstance();

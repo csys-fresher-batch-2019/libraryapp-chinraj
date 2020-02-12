@@ -1,4 +1,4 @@
-package com.chainsys.LDM.SendMail;
+package com.chainsys.ldm.sendMail;
 
 import java.util.Properties;
 

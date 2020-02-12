@@ -1,4 +1,4 @@
-package com.chainsys.LDM.StudentInfo;
+package com.chainsys.ldm.studentInfo;
 
 public class StudentInfo {
 

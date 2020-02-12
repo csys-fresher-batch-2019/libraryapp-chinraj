@@ -1,14 +1,14 @@
-package com.chainsys.LDM.Deduction;
+package com.chainsys.ldm.deduction;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Types;
 
-import com.chainsys.LDM.BookSummary.TestConnection;
-import com.chainsys.LDM.Deduction.IdDetails;
+import com.chainsys.ldm.bookSummary.TestConnection;
+import com.chainsys.ldm.deduction.IdDetails;
 
-import Logger.Logger;
+import logger.Logger;
 
 public class IdDetailsImp implements IdDetailsDAO {
 	Logger logger = Logger.getInstance();

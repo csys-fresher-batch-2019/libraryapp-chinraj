@@ -1,11 +1,12 @@
-package com.chainsys.LDM.Fines;
+package com.chainsys.ldm.fines;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import com.chainsys.LDM.BookSummary.TestConnection;
 
-import Logger.Logger;
+import com.chainsys.ldm.bookSummary.TestConnection;
+
+import logger.Logger;
 
 public class FineInfoImpl implements FineInfoDAO {
 	Logger logger = Logger.getInstance();
@@ -74,20 +75,32 @@ public class FineInfoImpl implements FineInfoDAO {
 				pst.setLong(2, ISBN);
 				logger.info(sql6);
 				try (ResultSet rs = pst.executeQuery();) {
-					if (rs.next()) {
+					rs.next(); 
 						b.setFines(rs.getInt(1));
 						if (b.getFines() == 0) {
-						}
-					}
+							String sql = "update fine_amount set fine_status ='paid' where student_id=? and ISBN = ?";
+							try (Connection con1 = TestConnection.getConnection();) {
+								try (PreparedStatement pst1 = con1.prepareStatement(sql6);) {
+									pst1.setInt(1, studentId);
+									pst1.setLong(2, ISBN);
+									int row = pst1.executeUpdate();	
+									logger.info(sql);
+									logger.info(row);
+								}
+							}}
+						else {
+							
+									
+									
 					logger.info(b.getFines());
-				}
-			}
+									}
+				}	}
 		} catch (Exception e) {
 			logger.error(e);
 		}
 		return b.getFines();
 	}
-
+		
 	public int bookreturned(int studentId, long iSBN) throws Exception {
 		try (Connection con = TestConnection.getConnection();) {
 			String sql3 = "update book_summary set status ='Returned',return_date=sysdate where student_id =? and ISBN = ?";
@@ -140,14 +153,18 @@ public class FineInfoImpl implements FineInfoDAO {
 		return 0;
 	}
 
-	public void renewal(int studentId, Long isbn) throws Exception {
+	public int renewal(int studentId, Long isbn) throws Exception {
+		int row = 0;
 		try (Connection con = TestConnection.getConnection();) {
 			String sqll = "select fine_status from fine_amount where student_id=? and ISBN =?";
 			try (PreparedStatement pst = con.prepareStatement(sqll);) {
 				pst.setInt(1, studentId);
 				pst.setLong(2, isbn);
+				
 				try (ResultSet row3 = pst.executeQuery();) {
+					
 					while (row3.next()) {
+						System.out.println(1);
 						String status = row3.getString("fine_status");
 						System.out.println(status);
 						if (status.contentEquals("paid")) {
@@ -157,19 +174,27 @@ public class FineInfoImpl implements FineInfoDAO {
 							try (PreparedStatement stmt = con1.prepareStatement(sql3);) {
 								stmt.setInt(1, studentId);
 								stmt.setLong(2, isbn);
-								int row = stmt.executeUpdate();
+								row = stmt.executeUpdate();
 								System.out.println(sql3);
 								System.out.println(row);
-							}
-						} else {
+							}}
+						else 
+						{
 							logger.info("Pay Fine amount");
-						}
-
-					}
-				}
-			}
+						}}
+								if(row==1) {
+									logger.info("renewal sucess");}
+									else
+									{
+										logger.info("not Sucess");
+									
+								}
+							
+						
+			
+			}}
 		}catch (Exception e) {
 			logger.error(e);	
 		}
-	}
-}
+		return row;
+			}}

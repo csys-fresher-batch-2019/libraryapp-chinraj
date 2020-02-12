@@ -1,8 +1,8 @@
-package com.chainsys.LDM.Deduction;
+package com.chainsys.ldm.deduction;
 
 import java.util.Scanner;
 
-import Logger.Logger;
+import logger.Logger;
 
 public class TestIdDetails {
          

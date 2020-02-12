@@ -1,9 +1,9 @@
-package com.chainsys.LDM.BookSummary;
+package com.chainsys.ldm.bookSummary;
 
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import Logger.Logger;
+import logger.Logger;
 
 
 public class TestBookSummary {

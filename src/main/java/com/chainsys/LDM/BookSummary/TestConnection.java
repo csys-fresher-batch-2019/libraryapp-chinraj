@@ -1,4 +1,4 @@
-package com.chainsys.LDM.BookSummary;
+package com.chainsys.ldm.bookSummary;
 import java.sql.DriverManager;
 import java.sql.Connection;
 

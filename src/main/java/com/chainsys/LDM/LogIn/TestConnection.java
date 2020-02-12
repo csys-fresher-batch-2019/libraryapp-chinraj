@@ -1,4 +1,4 @@
-package com.chainsys.LDM.LogIn;
+package com.chainsys.ldm.logIn;
 import java.sql.DriverManager;
 import java.sql.Connection;
 

@@ -1,4 +1,4 @@
-package com.chainsys.LDM.BookList;
+package com.chainsys.ldm.bookList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,8 @@ public class TestBookListViewBooks {
 		System.out.println(" BookList  :");
 		List<BookList> li = new ArrayList<BookList>();
 	   li = obj.viewBooks();
-	   System.out.println(li);
+	   for(Object object:li)
+		   System.out.println(object);
 	 
 	}
 }
