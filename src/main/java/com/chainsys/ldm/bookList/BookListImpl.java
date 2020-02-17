@@ -13,7 +13,8 @@ import logger.Logger;
 public class BookListImpl implements BookListDAO {
 	Logger logger = Logger.getInstance();
 
-	public void addBooks(BookList books) {
+	public int addBooks(BookList books) {
+		int rows=0;
 		String sqlinsert = "insert into booklist(ISBN,book_name,pages,author_name,publication,released_date,price,rack_no) values (?,?,?,?,?,?,?,?)";
 		try (Connection con = TestConnection.getConnection();) {
 			try (PreparedStatement stmt = con.prepareStatement(sqlinsert);) {
@@ -28,12 +29,13 @@ public class BookListImpl implements BookListDAO {
 				stmt.setInt(7, books.getPrice());
 
 				stmt.setInt(8, books.getRackNo());
-				int rows = stmt.executeUpdate();
+				rows = stmt.executeUpdate();
 				logger.info(rows);
 			}
 		} catch (Exception e) {
 			logger.error(e);
 		}
+		return rows;
 	}
 
 	public java.util.List<BookList> viewBooks()  {
@@ -68,23 +70,24 @@ public class BookListImpl implements BookListDAO {
 		return list;
 	}
 
-	public void removeBooks(BookList book3) {
+	public int removeBooks(BookList isbn) {
 		String sqlinsert = "delete booklist where ISBN=?";
+		int row=0;
 		try (Connection con = TestConnection.getConnection();) {
 			try (PreparedStatement stmt = con.prepareStatement(sqlinsert);) {
-				stmt.setLong(1, book3.getISBN());
-				int row = stmt.executeUpdate();
+				stmt.setLong(1, isbn.getISBN());
+				row = stmt.executeUpdate();
 				logger.info(sqlinsert);
 				logger.info(row);
 				if (row != 1) {
-					logger.info("\nNo book is available on" + book3.getISBN());
+					logger.info("\nNo book is available on" + isbn.getISBN());
 				}
-
 			}
 		} catch (Exception e) {
 
 			logger.error(e);
 		}
+		return row;
 	}
 
 	public ArrayList<BookList> list() {

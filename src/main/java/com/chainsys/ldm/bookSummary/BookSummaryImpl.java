@@ -36,7 +36,8 @@ public class BookSummaryImpl implements BookSummaryDAO {
 		
 	}
 
-	public void addBookInfo(BookSummary BS) {
+	public int addBookInfo(BookSummary BS) {
+		int row =0;
 		try (Connection con = TestConnection.getConnection();) {
 			String sql = "insert into book_summary(student_id,ISBN,borrowed_date,due_date,catagory)"
 					+ " values(?,?,?,?,?)";
@@ -49,7 +50,7 @@ public class BookSummaryImpl implements BookSummaryDAO {
 				java.sql.Date dd = java.sql.Date.valueOf(BS.getDueDate());
 				stmt.setDate(4, dd);
 				stmt.setString(5, BS.getCategory());
-				int row = stmt.executeUpdate();
+				 row = stmt.executeUpdate();
 				logger.info(row);
 				if (row == 1) {
 					String sql1 = "update booklist set book_status = 'Notavailable' where ISBN = ?";
@@ -79,6 +80,7 @@ public class BookSummaryImpl implements BookSummaryDAO {
 			logger.error(e);
 
 		}
+		return 0;
 
 	}
 
@@ -112,6 +114,5 @@ public class BookSummaryImpl implements BookSummaryDAO {
 			logger.error(e);
 		}
 		return li;
-
 	}
 }

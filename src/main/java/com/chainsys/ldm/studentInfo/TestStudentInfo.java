@@ -5,13 +5,21 @@ import java.util.Scanner;
 import logger.Logger;
 
 public class TestStudentInfo {
+	
 
+	
 	public static void main (String [] args) throws Exception{
-		Scanner s= new Scanner(System.in);
-		Logger logger = Logger.getInstance();
-		StudentInfoImpl d = new StudentInfoImpl();
-		StudentInfo SI = new StudentInfo();
 		
+		Scanner s = new Scanner(System.in);
+		StudentInfo SI = new StudentInfo();
+		StudentInfoImpl d = new StudentInfoImpl();
+		Logger logger = Logger.getInstance();
+		
+		System.out.println("\n 1.Add students/n 2.delete Student");
+		int n = s.nextInt();
+		switch (n) {
+		case 1: 
+		{
 		 logger.info("Enter studentId :");
 		SI.setStudentId(s.nextInt());
 		 logger.info("Enter studentName :");
@@ -21,6 +29,17 @@ public class TestStudentInfo {
 		logger.info("Enter mail :");
 		SI.setMailId(s.next());
 		d.addStudents(SI);
-		s.close();
-	} 
-}
+		
+	}
+		case 2:{
+			 logger.info("Enter studentId :");
+				SI.setStudentId(s.nextInt());
+				d.removeStudent(SI);
+		}s.close();
+		}
+	}}		
+		
+
+
+
+

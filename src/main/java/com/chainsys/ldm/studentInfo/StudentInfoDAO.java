@@ -2,5 +2,7 @@ package com.chainsys.ldm.studentInfo;
 
 public interface StudentInfoDAO {
 	
-	public void addStudents(StudentInfo SS) ;
+	public int addStudents(StudentInfo SS) ;
+	public int removeStudent(StudentInfo SS);
+	
 }

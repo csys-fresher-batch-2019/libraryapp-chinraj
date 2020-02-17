@@ -57,18 +57,18 @@ public class IdDetailsImp implements IdDetailsDAO {
 				s.setInt(3, studentId);
 				int rowq = s.executeUpdate();
 				logger.info(rowq);
-
-				String sql8 = " update fine_amount set fine_status= 'paid' where student_id= ? and ISBN =?";
-
+   if(rowq==1) {
+				String sql8 = " update fine_amount set fines =0 ,no_of_extra_days=0,fine_status= 'paid' where student_id= ? and ISBN =?";
 				try (PreparedStatement t = con.prepareStatement(sql8);) {
 					s.setInt(1, studentId);
 					s.setLong(2, ISBN);
-
 					int row1 = t.executeUpdate();
 					logger.info(row1);
 					logger.info(sql7);
-
-					return rowq;
+				}}
+				else
+				{
+					logger.info("Enter valid data ");
 				}
 			}
 		} catch (Exception e) {

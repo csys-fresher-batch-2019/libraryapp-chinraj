@@ -4,17 +4,14 @@ import java.util.Scanner;
 
 public class TestFineInfo {
 	
-
-	public static void main(String[] args) throws Exception {
+	public static void main(){
 		Scanner s = new Scanner(System.in);
 		System.out.println("\n 1.AddFineInf\n 2.booksReturned\n 3.Fine per Student\n 4.LostPenality\n 5.Book Renewal");
-
 		FineInfoImpl d = new FineInfoImpl();
 		FinesInfo f = new FinesInfo();
 		int n = s.nextInt();
 		switch (n) {
 		case 1: {
-
 			System.out.println("Enter studentId :");
 			f.setStudentId(s.nextInt());
 			System.out.println("Enter ISBN :");

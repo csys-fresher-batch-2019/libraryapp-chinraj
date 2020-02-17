@@ -4,6 +4,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface BookSummaryDAO {
-	void addBookInfo(BookSummary BS);
+	int addBookInfo(BookSummary BS);
 	List<BookSummary> onParticularDate (LocalDate borrowedDate);
 }
